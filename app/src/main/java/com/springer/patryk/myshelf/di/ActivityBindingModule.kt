@@ -1,6 +1,7 @@
 package com.springer.patryk.myshelf.di
 
-import com.springer.patryk.myshelf.MainActivity
+import com.springer.patryk.myshelf.screens.main.MainActivity
+import com.springer.patryk.myshelf.screens.splash.SplashActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -12,4 +13,8 @@ abstract class ActivityBindingModule {
     @ActivityScope
     @ContributesAndroidInjector()
     internal abstract fun mainActivity(): MainActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector()
+    internal abstract fun splashActivity(): SplashActivity
 }

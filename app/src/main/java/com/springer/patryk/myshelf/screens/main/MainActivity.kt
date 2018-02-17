@@ -1,7 +1,8 @@
-package com.springer.patryk.myshelf
+package com.springer.patryk.myshelf.screens.main
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.springer.patryk.myshelf.R
 
 class MainActivity : AppCompatActivity() {
 
