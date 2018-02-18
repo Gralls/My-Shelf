@@ -1,6 +1,7 @@
 package com.springer.patryk.myshelf.network.modules
 
 import com.springer.patryk.myshelf.BuildConfig
+import com.springer.patryk.myshelf.network.Api
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -23,5 +24,11 @@ class RetrofitModule {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(httpClient)
                 .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideApi(retrofit: Retrofit): Api {
+        return retrofit.create(Api::class.java)
     }
 }

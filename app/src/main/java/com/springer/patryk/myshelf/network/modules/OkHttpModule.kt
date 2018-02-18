@@ -21,7 +21,7 @@ class OkHttpModule {
         return OkHttpClient.Builder().readTimeout(60, TimeUnit.SECONDS)
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .addInterceptor(logger)
-//                .addInterceptor(apiKeyInterceptor)
+                .addInterceptor(apiKeyInterceptor)
                 .build()
     }
 
@@ -32,19 +32,19 @@ class OkHttpModule {
                 .Logger { message -> Log.d("OkHttp", message) })
                 .setLevel(HttpLoggingInterceptor.Level.BODY)
     }
-//TODO uncomment after google api key configuration
-//    @Provides
-//    @Singleton
-//    fun provideApiKeyInterceptor(): Interceptor {
-//        return Interceptor { chain ->
-//            var originalRequest = chain.request()
-//            var originalUrl = originalRequest.url()
-//            var newUrl = originalUrl.newBuilder()
-//                    .addQueryParameter("key", BuildConfig.API_KEY)
-//                    .build()
-//            var requestBuilder = originalRequest.newBuilder()
-//                    .url(newUrl)
-//            chain.proceed(requestBuilder.build())
-//        }
-//    }
+
+    @Provides
+    @Singleton
+    fun provideApiKeyInterceptor(): Interceptor {
+        return Interceptor { chain ->
+            var originalRequest = chain.request()
+            var originalUrl = originalRequest.url()
+            var newUrl = originalUrl.newBuilder()
+                    .addQueryParameter("key", BuildConfig.API_KEY)
+                    .build()
+            var requestBuilder = originalRequest.newBuilder()
+                    .url(newUrl)
+            chain.proceed(requestBuilder.build())
+        }
+    }
 }
