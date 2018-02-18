@@ -1,5 +1,6 @@
 package com.springer.patryk.myshelf.di
 
+import com.springer.patryk.myshelf.di.ActivityScope
 import com.springer.patryk.myshelf.screens.main.MainActivity
 import com.springer.patryk.myshelf.screens.splash.SplashActivity
 import dagger.Module
