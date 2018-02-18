@@ -2,6 +2,9 @@ package com.springer.patryk.myshelf.di
 
 import android.app.Application
 import com.springer.patryk.myshelf.MyShelfApplication
+import com.springer.patryk.myshelf.network.modules.GsonModule
+import com.springer.patryk.myshelf.network.modules.OkHttpModule
+import com.springer.patryk.myshelf.network.modules.RetrofitModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -17,7 +20,10 @@ import javax.inject.Singleton
         ApplicationModule::class,
         ActivityBindingModule::class,
         AndroidSupportInjectionModule::class,
-        FragmentBindingModule::class
+        FragmentBindingModule::class,
+        OkHttpModule::class,
+        RetrofitModule::class,
+        GsonModule::class
 ))
 interface ApplicationComponent : AndroidInjector<DaggerApplication> {
 
