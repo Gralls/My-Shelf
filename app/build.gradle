@@ -23,15 +23,22 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField 'String', 'API_URL', '"https://www.googleapis.com/books/v1/"'
-            buildConfigField 'String', 'API_KEY', project.ext.properties.API_KEY
         }
 
         debug {
             minifyEnabled false
             useProguard false
             buildConfigField 'String', 'API_URL', '"https://www.googleapis.com/books/v1/"'
-            buildConfigField 'String', 'API_KEY', project.ext.properties.API_KEY
-            resValue  'string', 'server_client_id', project.ext.properties.OAUTH_KEY
+            if (Project.hasProperty("API_KEY")) {
+                buildConfigField 'String', 'API_KEY', API_KEY
+            }else{
+                buildConfigField 'String', 'API_KEY', '"https://api.com/"'
+            }
+            if (Project.hasProperty("OAUTH_KEY")) {
+                resValue 'string', 'server_client_id', OAUTH_KEY
+            }else{
+                resValue 'string', 'server_client_id', '"server_client_id"'
+            }
         }
     }
 }
@@ -51,7 +58,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
-    testImplementation ("com.nhaarman:mockito-kotlin-kt1.1:$mockitoKotlinVersion") {
+    testImplementation("com.nhaarman:mockito-kotlin-kt1.1:$mockitoKotlinVersion") {
         exclude module: 'kotlin-stdlib'
     }
 
