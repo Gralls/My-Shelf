@@ -19,6 +19,22 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'API_URL', '"https://www.googleapis.com/books/v1/"'
+            if (Project.hasProperty("API_KEY")) {
+                buildConfigField 'String', 'API_KEY', API_KEY
+            }else{
+                buildConfigField 'String', 'API_KEY', '"https://api.com/"'
+            }
+            if (Project.hasProperty("OAUTH_KEY")) {
+                resValue 'string', 'server_client_id', OAUTH_KEY
+            }else{
+                resValue 'string', 'server_client_id', '"server_client_id"'
+            }
+        }
+
         debug {
             minifyEnabled false
             useProguard false
