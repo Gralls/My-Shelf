@@ -1,5 +1,6 @@
 package com.springer.patryk.myshelf.screens.authorization
 
+import com.springer.patryk.myshelf.R
 import com.springer.patryk.myshelf.base.BasePresenterImpl
 import com.springer.patryk.myshelf.models.User
 import javax.inject.Inject

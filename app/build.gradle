@@ -23,15 +23,15 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField 'String', 'API_URL', '"https://www.googleapis.com/books/v1/"'
-            buildConfigField 'String', 'API_KEY', API_KEY
+            buildConfigField 'String', 'API_KEY', project.ext.properties.API_KEY
         }
 
         debug {
             minifyEnabled false
             useProguard false
             buildConfigField 'String', 'API_URL', '"https://www.googleapis.com/books/v1/"'
-            buildConfigField 'String', 'API_KEY', API_KEY
-            resValue  'string', 'server_client_id', OAUTH_KEY
+            buildConfigField 'String', 'API_KEY', project.ext.properties.API_KEY
+            resValue  'string', 'server_client_id', project.ext.properties.OAUTH_KEY
         }
     }
 }

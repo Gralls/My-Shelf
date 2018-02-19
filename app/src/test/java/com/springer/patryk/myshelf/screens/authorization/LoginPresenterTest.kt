@@ -3,6 +3,7 @@ package com.springer.patryk.myshelf.screens.authorization
 import android.net.Uri
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
+import com.springer.patryk.myshelf.R
 import com.springer.patryk.myshelf.models.User
 import org.junit.Before
 import org.junit.Test

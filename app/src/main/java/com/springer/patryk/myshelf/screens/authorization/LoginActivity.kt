@@ -6,6 +6,7 @@ import com.github.ajalt.timberkt.Timber
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.springer.patryk.myshelf.R
 import com.springer.patryk.myshelf.base.BaseActivity
 import com.springer.patryk.myshelf.models.User
 import kotlinx.android.synthetic.main.activity_main.*
@@ -58,6 +59,6 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     }
 
     override fun openHomePage() {
-
+        showMessage("YAY")
     }
 }
