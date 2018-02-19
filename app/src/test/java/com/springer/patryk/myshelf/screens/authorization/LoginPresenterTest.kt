@@ -33,6 +33,6 @@ class LoginPresenterTest {
     fun unsuccessfulLoginTest() {
         var user: User? = null
         presenter.onUserSignedIn(user)
-        verify(view).showMessage(R.string.signing_failure)
+        verify(view).showErrorMessage(R.string.signing_failure)
     }
 }
