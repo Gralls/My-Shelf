@@ -1,7 +1,7 @@
 package com.springer.patryk.myshelf.di
 
-import com.springer.patryk.myshelf.di.ActivityScope
-import com.springer.patryk.myshelf.screens.main.MainActivity
+import com.springer.patryk.myshelf.screens.authorization.LoginActivity
+import com.springer.patryk.myshelf.screens.authorization.LoginModule
 import com.springer.patryk.myshelf.screens.splash.SplashActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -12,8 +12,8 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityBindingModule {
     @ActivityScope
-    @ContributesAndroidInjector()
-    internal abstract fun mainActivity(): MainActivity
+    @ContributesAndroidInjector(modules = arrayOf(LoginModule::class))
+    internal abstract fun loginActivity(): LoginActivity
 
     @ActivityScope
     @ContributesAndroidInjector()
