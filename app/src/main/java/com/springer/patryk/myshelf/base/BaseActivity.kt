@@ -9,7 +9,7 @@ import org.jetbrains.anko.find
 /**
  * Created by Patryk on 2018-02-19.
  */
-open class BaseActivity : DaggerAppCompatActivity(), BaseView {
+open class BaseActivity : DaggerAppCompatActivity(), BaseContract.View {
     override fun showErrorMessage(stringResId: Int) {
         longSnackbar(find(R.id.content), stringResId)
     }

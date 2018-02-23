@@ -1,11 +1,25 @@
 package com.springer.patryk.myshelf.base
 
-/**
- * Created by Patryk on 2018-02-18.
- */
-interface BasePresenter<V : BaseView> {
-    fun attachView(view: V)
-    fun detachView()
-    fun getViewOrThrow(): V?
+import io.reactivex.disposables.CompositeDisposable
 
+/**
+ * Created by Patryk on 2018-02-19.
+ */
+open class BasePresenter<V : BaseContract.View> : BaseContract.Presenter<V> {
+
+    protected val disposable = CompositeDisposable()
+    private var view: V? = null
+
+    override fun attachView(view: V) {
+        this.view = view
+    }
+
+    override fun detachView() {
+        disposable.clear()
+        this.view = null
+    }
+
+    override fun getViewOrThrow(): V? {
+        return view
+    }
 }
